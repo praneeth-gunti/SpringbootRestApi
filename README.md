@@ -3,11 +3,11 @@ Creating a RestAPI for the list of countries using SpringBoot
 
 ## GET REQUESTS:
 
-### Retrieve all countries
+### RETRIVE ALL COUNTRIES
 
 -- http://localhost:8080/countries/all
 
-### NAME
+### RETRIVE BY PARTIAL NAME
 Search by country name. It can be the native name or partial name
 
 -- http://localhost:8080/countries/name/{name}
@@ -18,7 +18,7 @@ http://localhost:8080/countries/name/ind
 
 http://localhost:8080/countries/name/united
 
-### FULL NAME
+### RETRIVE BY FULL NAME
 Search by country full name
 
 -- http://localhost:8080/countries/name/{name}?fullText=true
