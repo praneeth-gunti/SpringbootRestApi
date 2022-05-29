@@ -33,9 +33,11 @@ public class CountryController {
     }
 
     @RequestMapping("/name/{countryName}")
-    public ResponseEntity<List<Country>> getPartialHitCountries(@PathVariable String countryName) {
+    public ResponseEntity<List<Country>> getPartialHitCountries(
+            @PathVariable String countryName,
+            @RequestParam(defaultValue = "false") Boolean fullText) {
         return new ResponseEntity<List<Country>>(
-                new CountriesServices().getCountry(countryName),
+                new CountriesServices().getCountry(countryName, fullText),
                 new HttpHeaders(),
                 HttpStatus.OK);
     }

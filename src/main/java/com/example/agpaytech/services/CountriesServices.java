@@ -61,14 +61,25 @@ public class CountriesServices {
         return countries.subList(start, end);
     }
 
-    public List<Country> getCountry(String partialName) {
+    public List<Country> getCountry(String partialName, Boolean fullText) {
         List<Country> partialHitCountries = new ArrayList<>();
-        for(Country country: countries) {
-            String countryName = country.getCountryName();
-            if (countryName.toLowerCase().contains(partialName.toLowerCase())){
-                partialHitCountries.add(country);
+        if(!fullText){
+            for(Country country: countries) {
+                String countryName = country.getCountryName();
+                if (countryName.toLowerCase().contains(partialName.toLowerCase())){
+                    partialHitCountries.add(country);
+                }
+            }
+        }else{
+            for(Country country: countries) {
+                String countryName = country.getCountryName();
+                if (countryName.toLowerCase().equals(partialName.toLowerCase())){
+                    partialHitCountries.add(country);
+                    return partialHitCountries;
+                }
             }
         }
+
         return partialHitCountries;
     }
 
